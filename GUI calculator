@@ -1,0 +1,47 @@
+# programs
+from tkinter import *
+
+class MyCalculator:
+    def __init__(self,win):
+        self.lbl1=Label(win,text="Enter 1st no.")
+        self.lbl2=Label(win,text="Enter 2nd no.")
+        self.lbl3=Label(win,text="Result")
+        
+        self.t1=Entry(win,bd=4)
+        self.t2=Entry(win,bd=4)
+        self.t3=Entry(win,bd=4,bg="yellow",fg="red",font=("arial",15))
+        
+        self.btnADD=Button(win,text="+",bg='cyan',command=self.add)
+        self.btnMultiply=Button(win,text="*",bg='cyan',command=self.product)
+        
+        self.lbl1.place(x=100,y=50)
+        self.t1.place(x=200,y=50)
+        
+        self.lbl2.place(x=100,y=100)
+        self.t2.place(x=200,y=100)
+        
+        self.btnADD.place(x=200,y=150)
+        self.btnMultiply.place(x=300,y=150)
+        
+        self.lbl3.place(x=100,y=200)
+        self.t3.place(x=200,y=200)
+        
+    def add(self):
+        self.t3.delete(0,'end')
+        num1 = int(self.t1.get())
+        num2 = int(self.t2.get())
+        result = num1+num2
+        self.t3.insert(END,str(result))
+        
+    def product(self):
+        self.t3.delete(0,'end')
+        num1 = int(self.t1.get())
+        num2 = int(self.t2.get())
+        result = num1*num2
+        self.t3.insert(END,str(result))
+
+window = Tk()
+MyCalculator(window)
+window.title("My Python GUI Calculator...!")
+window.geometry("500x300+300+200")
+window.mainloop()
